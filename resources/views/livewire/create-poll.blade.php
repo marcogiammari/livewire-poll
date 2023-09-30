@@ -1,11 +1,9 @@
 <div>
-    <form>
+    <form wire:submit.prevent="createPoll">
         <label>Poll Title</label>
 
         {{-- title si riferisce alla proprietà di CreatePoll.php --}}
         <input type="text" wire:model.live="title" />
-
-        Current title: {{ $title }}
 
         <div class="mb-4 mt-4">
             <button class="btn" wire:click.prevent="addOption">
@@ -18,11 +16,13 @@
                 <div class="mb-4">
                     <label>Option {{ $index + 1 }}</label>
                     <div class="flex gap-2">
-                        <input type="text" wire.model.live="options.{{$index}}">
+                        <input type="text" wire:model.live="options.{{$index}}">
                         <button class="btn" wire:click.prevent="removeOption({{$index}})">Remove</button>
                     </div>
                 </div>
             @endforeach
         </div>
+
+        <button type="submit" class="btn">Create Poll</button>
     </form>
 </div>
