@@ -38,7 +38,17 @@ class CreatePoll extends Component
             $poll->options()->create(['name' => $optionName]);
         }
 
-        $this->reset(['title', 'options']);
+        // metodo alternativo per creare il poll con options insieme
+
+        // Poll::create([
+        //     'title' => $this->title
+        // ])->options()->createMany(
+        //     collect($this->options)
+        //         ->map(fn ($option) => ['name' => $option])
+        //         ->all()
+        // );
+
+        $this->reset('title', 'options');
     }
 
     // proprietà semplici si inizializzano come $options
