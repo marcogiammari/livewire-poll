@@ -68,6 +68,10 @@ class CreatePoll extends Component
         // );
 
         $this->reset('title', 'options');
+
+        // emit event: comunica a tutti i lw components che un sondaggio è stato creato
+        // in alternativa si può usare dispatchTo -> comunica a uno specifico componente
+        $this->dispatch('pollCreated');
     }
 
     // proprietà semplici si inizializzano come $options

@@ -26,11 +26,9 @@
   </style>
   {{-- blade-formatter-enable --}}
 
-    @livewireStyles
 </head>
 
 <body class="container mx-auto mb-10 mt-10 max-w-lg">
-    @livewireScripts
 
     <div>
         <h2 class="mb-4 mt-4 text-2xl">Create Poll</h2>

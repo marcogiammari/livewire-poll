@@ -3,10 +3,18 @@
 namespace App\Livewire;
 
 use App\Models\Poll;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Polls extends Component
 {
+    // protected $listeners = [
+    //     'pollCreated' => 'render'
+    // ];
+
+
+    // nuova sintassi Livewire3
+    #[On('pollCreated')]
     public function render()
     {
         $polls = Poll::with('options.votes')->latest()->get();
